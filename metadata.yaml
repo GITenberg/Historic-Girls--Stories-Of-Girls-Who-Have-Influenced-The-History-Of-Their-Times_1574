@@ -1,0 +1,32 @@
+_repo: Historic-Girls--Stories-Of-Girls-Who-Have-Influenced-The-History-Of-Their-Times_1574
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Brooks, Elbridge S. (Elbridge Streeter)
+    alias: Brooks, E. S. (Elbridge Streeter)
+    birthdate: 1846
+    deathdate: 1902
+    gutenberg_agent_id: '649'
+    url: http://www.gutenberg.org/2009/agents/649
+description: ''
+gutenberg_issued: '1998-12-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1574'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Girls -- Biography'
+- !lcc 'CT'
+- !lcsh 'Biography -- Juvenile literature'
+- !lcc 'PZ'
+- GITenberg
+tableOfContents: Zenobia of Palmyra -- Helena of Britain -- Pulcheria of Constantinople
+  -- Clotilda of Burgundy -- Woo of Hwang-Ho -- Edith of Scotland -- Jacqueline of
+  Holland -- Catarina of Venice -- Theresa of Avila -- Elizabeth of Tudor -- Christina
+  of Sweden -- Ma-ta-oka of Pow-ha-tan.
+title: 'Historic Girls: Stories Of Girls Who Have Influenced The History Of Their
+  Times'
+url: http://www.gutenberg.org/ebooks/1574

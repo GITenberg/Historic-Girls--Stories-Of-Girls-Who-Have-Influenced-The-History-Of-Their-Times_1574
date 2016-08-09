@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: dSjR41y0uHekTET7oJsKenm1aZTDx7N6Pb8r4EcRQ581Pv9XbwJdYUW4XtEcCw5i+xqu6WL/v9oNEZNluERTAxecUeet+ZvXRvhHvUdhY/6ZMNC1HvTZpjo1u7gnUUFuy4oNyxXxZJ5XUz40Xp6zTBDvl58/vE48MnQ2h/tevPHOfD+SYZJbnzkq/j/X4IFlpOWy64ui9ANOcHKAMTrYDg0vpvrKNg+dZNsFbik4cytrJ1Xcyuj5zvFWHXCLgljHsrBOX1yGpG77xYkbksgf80ececmrKF8o+T3Hfm99bgkVJNB3LwMDzcfPho64tCN5yQbYyGSD1hXPHDYY0dcp4qxENr+JqkHhQfoRd0qHpCv2wv8ovajqOPMPHModBslyfw8hnajiq1Yz2zyZ408sO4xotWGo3ymYrcJIoBl4UkpctJJNxz4P0IQSSJAMCovsRJnPdgMZnsNmbdiMzl7u5/gN7/NF2H1ecopX6Ma8T/WMbC0P60RQteEVjGaRZzRq6xshskoxzbIjXM5C4tgx++B5PcMi/hQg2ZLZGMfKHJwCBgZYldEPDEpercpBRB+nfDL7yrswvaTSgWh5d1tGi17jLQ6TmgCPvQ7I6Bct3nxmqOkQVkI4XsBGFCty7v2zLU3M9JxZH+VMfLAsH0kBPFHrNJ6XV1xIo5EHb782pP4=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Historic-Girls--Stories-Of-Girls-Who-Have-Influenced-The-History-Of-Their-Times_1574
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy

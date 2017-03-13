@@ -1,5 +1,8 @@
 _repo: Historic-Girls--Stories-Of-Girls-Who-Have-Influenced-The-History-Of-Their-Times_1574
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Brooks, Elbridge S. (Elbridge Streeter)
@@ -9,6 +12,8 @@ creator:
     gutenberg_agent_id: '649'
     url: http://www.gutenberg.org/2009/agents/649
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/1574#Historic-Girls--Stories-Of-Girls-Who-Have-Influenced-The-History-Of-Their-Times
 gutenberg_issued: '1998-12-01'
 gutenberg_type: Text
 identifiers:
